@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openActivity1(){
-        Intent intent = new Intent(this, ViengPhat.class);
+        Intent intent = new Intent(this, Viengphat.class);
         startActivity(intent);
     }
 

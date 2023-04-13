@@ -23,9 +23,14 @@ public class gomo extends Service {
         if(gomo.isPlaying()){
 //          gomo.stop();
 //            gomo.release();
-            gomo = null;
+//            gomo = null;
             gomo= MediaPlayer.create(gomo.this, R.raw.soundmo);}
         gomo.start();
         return super.onStartCommand(intent, flags, startId);
     }
+//    @Override
+//    public void onDestroy(){
+//        super.onDestroy();
+//        gomo.stop();
+//    }
 }

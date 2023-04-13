@@ -25,7 +25,7 @@ public class gochuong extends Service {
         if(gochuong.isPlaying()){
 //          mymedia.stop();
             //gochuong.release();
-            gochuong = null;
+//            gochuong = null;
             gochuong= MediaPlayer.create(gochuong.this, R.raw.soundgochuong);}
         gochuong.start();
       return super.onStartCommand(intent, flags, startId);
@@ -34,6 +34,6 @@ public class gochuong extends Service {
 //    @Override
 //    public void onDestroy() {
 //        super.onDestroy();
-//        mymedia.stop();
+//        gochuong.stop();
 //    }
 }
