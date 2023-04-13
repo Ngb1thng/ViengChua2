@@ -52,7 +52,7 @@ public class PhatGiaoAudio extends AppCompatActivity {
             mediaPlayer.release();
             KhoiTaoMediaPlayer();
             mediaPlayer.start();
-            ivPlay.setImageResource(R.drawable.pause);
+            ivPlay.setImageResource(R.drawable.pause1);
         }));
         KhoiTaoMediaPlayer();
 
@@ -70,7 +70,7 @@ public class PhatGiaoAudio extends AppCompatActivity {
                 mediaPlayer.release();
                 KhoiTaoMediaPlayer();
                 txtNameSong.setText(arrayList.get(position).getName());
-                ivPlay.setImageResource(R.drawable.pause);
+                ivPlay.setImageResource(R.drawable.pause1);
                 mediaPlayer.start();
                 handelChangeColorNext();
 
@@ -89,7 +89,7 @@ public class PhatGiaoAudio extends AppCompatActivity {
                 mediaPlayer.release();
                 KhoiTaoMediaPlayer();
                 txtNameSong.setText(arrayList.get(position).getName());
-                ivPlay.setImageResource(R.drawable.pause);
+                ivPlay.setImageResource(R.drawable.pause1);
                 mediaPlayer.start();
                 setTimeTotal();
                 handelChangeColorBack();
@@ -103,10 +103,10 @@ public class PhatGiaoAudio extends AppCompatActivity {
                 if(mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
 
-                    ivPlay.setImageResource(R.drawable.play);
+                    ivPlay.setImageResource(R.drawable.play1);
                 }else{
                     mediaPlayer.start();
-                    ivPlay.setImageResource(R.drawable.pause);
+                    ivPlay.setImageResource(R.drawable.pause1);
                 }
                 ListOfSongs.getChildAt(position).setBackgroundColor(Color.LTGRAY);
                 setTimeTotal();

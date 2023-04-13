@@ -29,7 +29,8 @@ public class GoMoTungKinh extends AppCompatActivity {
     Runnable runnable;
     SeekBar skb;
     TextView tvw;
-    int delay = 200;
+    MediaPlayer mp,mp1,mp2;
+    int delay = 800;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +49,12 @@ public class GoMoTungKinh extends AppCompatActivity {
         dui3.setVisibility(View.INVISIBLE);
 
         mo = findViewById(R.id.mo);
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.soundmo);
+        mp = MediaPlayer.create(this,R.raw.soundmo);
         mo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp.start();
+                if (mp.isPlaying()) mp = MediaPlayer.create(GoMoTungKinh.this,R.raw.soundmo);
                 dui1.setVisibility(View.VISIBLE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -64,11 +66,12 @@ public class GoMoTungKinh extends AppCompatActivity {
         });
 
         chuong = findViewById(R.id.chuong);
-        final MediaPlayer mp1 = MediaPlayer.create(this,R.raw.chuong1);
+        mp1 = MediaPlayer.create(this,R.raw.chuong1);
         chuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp1.start();
+                if (mp1.isPlaying()) mp1 = MediaPlayer.create(GoMoTungKinh.this,R.raw.chuong1);
                 dui2.setVisibility(View.VISIBLE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -80,11 +83,12 @@ public class GoMoTungKinh extends AppCompatActivity {
         });
 
         kchuong = findViewById(R.id.kchuong);
-        final MediaPlayer mp2 = MediaPlayer.create(this,R.raw.kchuong);
+        mp2 = MediaPlayer.create(this,R.raw.kchuong);
         kchuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mp2.start();
+                if (mp2.isPlaying()) mp2 = MediaPlayer.create(GoMoTungKinh.this,R.raw.kchuong);
                 dui3.setVisibility(View.VISIBLE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -143,7 +147,7 @@ public class GoMoTungKinh extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                delay = 200*progressValue;
+                delay = 1000-200*progressValue;
                 tvw.setText(String.valueOf(skb.getProgress()));
             }
         });

@@ -26,7 +26,7 @@
         android:layout_marginBottom="15dp"
         android:layout_marginRight="40dp"
         android:layout_alignRight="@+id/ivPlay"
-        android:src="@drawable/backsong" />
+        android:src="@drawable/previous" />
 
     <ImageView
         android:id="@+id/ivPlay"
@@ -35,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/play" />
+        android:src="@drawable/play1" />
     <ImageView
         android:id="@+id/ivNext"
         android:layout_width="35dp"
@@ -44,7 +44,7 @@
         android:layout_marginLeft="40dp"
         android:layout_alignLeft="@+id/ivPlay"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/nextsong" />
+        android:src="@drawable/next" />
 
     <TextView
         android:id="@+id/txtNameSong"
