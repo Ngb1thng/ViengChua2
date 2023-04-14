@@ -26,7 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("name", name);
         contentValues.put("timeuser", timeuser);
         contentValues.put("realtime", realtime);
-        long result=DB.insert("TimeUsed", null, contentValues);
+        22DB.insert("TimeUsed", null, contentValues);
 
     }
 
