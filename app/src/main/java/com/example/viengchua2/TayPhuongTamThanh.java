@@ -10,8 +10,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Date;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class TayPhuongTamThanh extends AppCompatActivity {
@@ -22,6 +27,10 @@ public class TayPhuongTamThanh extends AppCompatActivity {
     boolean checkht;
     Intent intent3 ;
     Animation chuchay;
+
+    DBHelper DB;
+    String date;
+    Chronometer cnmt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +51,13 @@ public class TayPhuongTamThanh extends AppCompatActivity {
         chuchay = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.anim_chuchay);
         //animation
+
+        DB = new DBHelper(this);
+        cnmt = findViewById(R.id.simpleChronometer);
+
+        Date currentTime = Calendar.getInstance().getTime();
+        date = currentTime.toString();
+
         btnchuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,11 +107,15 @@ public class TayPhuongTamThanh extends AppCompatActivity {
         super.onStart();
         startService(intent3);
         tv2.startAnimation(chuchay);
+        cnmt.start();
     }
     @Override
     protected void onStop() {
         super.onStop();
         stopService(intent3);
+        String time = cnmt.getText().toString();
+        DB.insertuserdata(this.getClass().getSimpleName(),time,date);
+
     }
     @Override
     protected void onDestroy() {

@@ -87,6 +87,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078" />
 
+    <Chronometer
+        android:id="@+id/simpleChronometer"
+        android:layout_width="153dp"
+        android:layout_height="45dp"
+        android:textColor="#00000000"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.103" />
+
     <TextView
         android:id="@+id/tv2"
         android:layout_width="100000dp"

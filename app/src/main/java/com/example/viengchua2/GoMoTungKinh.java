@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,9 +29,11 @@ public class GoMoTungKinh extends AppCompatActivity {
     Button auto;
     Handler handler = new Handler();
     Runnable runnable;
-    SeekBar skb;
+        SeekBar skb;
     TextView tvw;
     MediaPlayer mp,mp1,mp2;
+    String date;
+    DBHelper DB;
     int delay = 800;
 
     @Override
@@ -38,8 +42,13 @@ public class GoMoTungKinh extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_go_mo_tung_kinh);
+
+        DB = new DBHelper(this);
         cnmt =  findViewById(R.id.simpleChronometer);
         cnmt.start();
+
+        Date currentTime = Calendar.getInstance().getTime();
+        date = currentTime.toString();
 
         dui1 = findViewById(R.id.dui1);
         dui1.setVisibility(View.INVISIBLE);
@@ -101,7 +110,7 @@ public class GoMoTungKinh extends AppCompatActivity {
 
         dui4 = findViewById(R.id.dui4);
         dui4.setVisibility(View.INVISIBLE);
-
+        skb = (SeekBar) findViewById(R.id.seekBar);
         auto = findViewById(R.id.auto);
         auto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,7 +137,7 @@ public class GoMoTungKinh extends AppCompatActivity {
         });
 
 
-        skb = (SeekBar) findViewById(R.id.seekBar);
+
         tvw = findViewById(R.id.textView);
         tvw.setText("1");
 
@@ -158,6 +167,8 @@ public class GoMoTungKinh extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         handler.removeCallbacksAndMessages(null);
+        String time = cnmt.getText().toString();
+        DB.insertuserdata(this.getClass().getSimpleName(),time,date);
 
     }
 }
